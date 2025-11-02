@@ -58,7 +58,12 @@ def add_new_grn():
     warranty_status = input("Enter Warranty Status (warranty/out of warranty): ")
     gate_entry_no = input("Enter Gate Entry No: ")
     gate_entry_date = input("Enter Gate Entry Date (YYYY-MM-DD): ")
-    
+   
+    #duplicates check using gate_entry_no
+    if gate_entry_no in df['Gate Entry No'].values:
+    print(f"GRN for Gate Entry No {gate_entry_no} already exists. Entry skipped.")
+    return
+
     # Get material details
     goods_description = input("Enter Goods Description: ")
     qty_supplied = input("Enter Quantity Supplied: ")
@@ -251,3 +256,4 @@ if __name__ == "__main__":
         exit()
 
     main_menu()
+
